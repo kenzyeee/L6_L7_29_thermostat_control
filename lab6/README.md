@@ -1,16 +1,11 @@
-# L6_L7_29 — Smart Thermostat Controller
+# Lab 6: Code and Branch Coverage
 
-Lab 6: Code and Branch Coverage
+The thermostat functions are exercised across mode, time, occupancy, HVAC action, and energy alert branches.
 
-## About
+Run from this folder:
 
-A small Python module that picks target temperatures by mode and time of day, chooses heating or cooling actions and raises energy usage alerts.
+```bash
+python -m pytest --cov=thermostat_control --cov-branch --cov-report=term-missing
+```
 
-## Files
-
-| File | Description |
-|------|-------------|
-| `thermostat_control.py` | The module under test |
-| `test_thermostat_control.py` | Starter test file |
-
-Refer to the lab handout for instructions.
+The tests target both outcomes of each decision and boundary values such as 6:00, 9:00, 17:00, 22:00, a one-degree HVAC difference, and the outside-temperature thresholds.

@@ -1,16 +1,11 @@
-# L6_L7_29 — Smart Thermostat Controller
+# Lab 7: Fuzz Testing
 
-Lab 7: Fuzz Testing
+The module accepts text input for temperature setpoints, comma-separated sensor readings, and `HH:MM` schedule times. Inputs outside the documented formats are rejected with `TypeError` or `ValueError`, rather than failing unpredictably.
 
-## About
+Run from this folder:
 
-A small Python module that reads temperature setpoints, averages sensor readings and labels schedule slots.
+```bash
+python -m pytest -q
+```
 
-## Files
-
-| File | Description |
-|------|-------------|
-| `thermostat_control.py` | The code under test |
-| `test_thermostat_control.py` | Starter test file |
-
-Refer to the lab handout for instructions.
+Hypothesis generates ordinary text, empty strings, and `None` values for each parser, alongside examples that exercise valid Celsius/Fahrenheit, CSV, and time inputs.
